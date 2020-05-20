@@ -220,10 +220,10 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`%` PROCEDURE `spCondition_SaveNew`(IN readingId INT, weather_condition VARCHAR(50), condition_description VARCHAR(250))
+CREATE DEFINER=`root`@`%` PROCEDURE `spCondition_SaveNew`(IN readingId INT, weather_condition VARCHAR(50), condition_description VARCHAR(250), icon VARCHAR(3))
 BEGIN
-INSERT INTO WeatherCondition(ReadingId, Weather_Condition, Condition_Description)
-VALUES(readingId, weather_condition, condition_description);
+INSERT INTO WeatherCondition(ReadingId, Weather_Condition, Condition_Description, Icon)
+VALUES(readingId, weather_condition, condition_description, icon);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -370,7 +370,7 @@ CREATE DEFINER=`root`@`%` PROCEDURE `spReading_LatestReading`()
 BEGIN
 SELECT *
 FROM Reading
-ORDER BY Reading_Timestamp DESC
+ORDER BY Id DESC
 LIMIT 0,1;
 END ;;
 DELIMITER ;

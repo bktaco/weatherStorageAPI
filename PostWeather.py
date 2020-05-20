@@ -4,7 +4,7 @@ import json
 urllib3.disable_warnings()
 
 # Get weather data
-weather = requests.get("https://api.openweathermap.org/data/2.5/weather?id=APIKEYHERE")
+weather = requests.get("https://api.openweathermap.org/data/2.5/weather?id=STATIONID&appid=APIKEYHERE")
 data = weather.json()
 
 if (weather.status_code == 200):
@@ -42,6 +42,7 @@ if (weather.status_code == 200):
     # Condition section of the body
     condition['weather_condition'] =  data['weather'][0]['main']
     condition['condition_description'] = data['weather'][0]['description']
+    condition['icon'] = data['weather'][0]['icon']
 
     # Build the body
     body['reading'] = reading
