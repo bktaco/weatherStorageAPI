@@ -10,5 +10,6 @@ namespace WeatherAPI.Library.Models
         public int ReadingId { get; set; }
         public string Weather_Condition { get; set; }
         public string Condition_Description { get; set; }
+        public string Icon { get; set; }
     }
 }

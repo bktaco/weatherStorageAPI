@@ -28,7 +28,8 @@ namespace WeatherAPI.Controllers
                 Id = reading.FirstOrDefault().Id,
                 ReadingId = reading.FirstOrDefault().ReadingId,
                 Weather_Condition = reading.FirstOrDefault().Weather_Condition,
-                Condition_Description = reading.FirstOrDefault().Condition_Description
+                Condition_Description = reading.FirstOrDefault().Condition_Description,
+                Icon = reading.FirstOrDefault().Icon
             };
 
             return currentCondition;
